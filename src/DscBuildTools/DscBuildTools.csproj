@@ -1,0 +1,90 @@
+﻿<Project>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+    <ImportDirectoryBuildProps>true</ImportDirectoryBuildProps>
+    <ImportDirectoryBuildTargets>true</ImportDirectoryBuildTargets>
+    <IncludeUIReferences>true</IncludeUIReferences>
+    <IncludeMSBuildReferences>true</IncludeMSBuildReferences>
+    <IncludeCommonReferences>true</IncludeCommonReferences>
+  </PropertyGroup>
+
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <AssemblyName>DscBuildTools</AssemblyName>
+    <TargetFramework>net471</TargetFramework>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <Compile Remove="Model\**" />
+    <EmbeddedResource Remove="Model\**" />
+    <None Remove="Model\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Remove="DscTasks\ImportDscResourceConfigurationFileTask.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Remove="DscResource.json" />
+    <None Remove="DscResource.schema.json" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Update="Debug.targets">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Configuration.xaml">
+      <Generator></Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\DscBuildTools.Types\DscBuildTools.Types.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Management.Infrastructure">
+      <HintPath>..\..\..\..\..\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Management.Infrastructure\v4.0_1.0.0.0__31bf3856ad364e35\Microsoft.Management.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management.Automation">
+      <HintPath>..\..\..\..\..\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Management.Automation\v4.0_3.0.0.0__31bf3856ad364e35\System.Management.Automation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+
+
+
+
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+
+
+
+
+
+  <ProjectExtensions><VisualStudio><UserProperties DscResource_1json__JSONSchema="DscResource.schema.json" /></VisualStudio></ProjectExtensions>
+</Project>

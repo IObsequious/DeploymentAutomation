@@ -1,0 +1,54 @@
+﻿<Project>
+  <PropertyGroup>
+    <IncludePowerShellReferences>true</IncludePowerShellReferences>
+    <IncludeCommonReferences>true</IncludeCommonReferences>
+  </PropertyGroup>
+  
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+  
+   
+  <PropertyGroup>
+    <AssemblyName>MSFT_DscModule</AssemblyName>
+    <TargetFramework>net471</TargetFramework>
+  </PropertyGroup>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+</Project>

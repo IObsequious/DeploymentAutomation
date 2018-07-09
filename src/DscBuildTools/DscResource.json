@@ -1,0 +1,27 @@
+﻿{
+  "$schema": "C:\\stage\\sandbox\\Deployment\\src\\DscBuildTools\\DscResource.schema.json",
+
+  "name": "MSFT_DemoResource",
+  "friendlyName": "DemoResource",
+  "classVersion": {
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": "Pre"
+  },
+  "properties": [
+    {
+      "name": "Path",
+      "isEmbedded": false,
+      "attribute": "Key",
+      "type": "String"
+    },
+    {
+      "name": "Ensure",
+      "isEmbedded": false,
+      "attribute": "Write",
+      "type": "String",
+      "possibleValues": [ "Present", "Absent" ]
+    }
+  ]
+}

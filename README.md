@@ -1,2 +1,1 @@
-# DeploymentAutomation
-Windows Deployment Projects
+### Solution

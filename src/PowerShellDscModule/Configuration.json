@@ -1,0 +1,36 @@
+﻿{
+  "$schema": "http://ollon.scienceontheweb.net/schemas/Configuration.schema.json",
+  "classVersion": {
+    "major": 1,
+    "minor": 0,
+    "revision": 0
+  },
+  "friendlyName": "DscResourceDemo",
+  "name": "MSFT_DscResourceDemo",
+  "properties": [
+    {
+      "name": "KeyProperty",
+      "attribute": "Key",
+      "isEmbedded": false,
+      "type": "String"
+    },
+    {
+      "name": "WriteProperty",
+      "attribute": "Write",
+      "isEmbedded": false,
+      "type": "String"
+    },
+    {
+      "attribute": "Required",
+      "isEmbedded": false,
+      "name": "RequiredProperty",
+      "type": "Boolean"
+    },
+    {
+      "attribute": "Read",
+      "isEmbedded": false,
+      "name": "ReadProperty",
+      "type": "String"
+    }
+  ]
+}

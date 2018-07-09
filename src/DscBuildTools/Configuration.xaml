@@ -1,0 +1,21 @@
+﻿<DesiredStateConfiguration 
+                           xmlns="http://schemas.microsoft.com/DesiredStateConfiguration"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           RootNamespace="Example.Namespace"
+                           OutputDirectory="$(IntermediateOutputPath)">
+    <DesiredStateConfiguration.DscResources>
+        <DscResource x:Name="MSFT_DscResourceDemo" FriendlyName="DscResourceDemo" ClassVersion="1.0.0.0">
+            <DscResourceKeyProperty x:Name="KeyProperty" Description="Represents a key property." PropertyType="String" >
+                <NameValuePair Name="X" Value="Y"/>
+            </DscResourceKeyProperty>
+            <DscResourceWriteProperty x:Name="Ensure" PropertyType="String" Description="Determines whether or not a resource should be present or absent.">
+                <NameValuePair Name="Present" />
+                <NameValuePair Name="Absent" />
+                <NameValuePair Name="None" />
+            </DscResourceWriteProperty>
+        </DscResource>
+    </DesiredStateConfiguration.DscResources>
+
+
+
+</DesiredStateConfiguration>

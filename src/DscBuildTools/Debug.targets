@@ -1,0 +1,46 @@
+﻿<Project DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <IntermediateOutputPath>$(MSBuildThisFileDirectory)</IntermediateOutputPath>
+    <DscBuildToolsTargetNamespace>ExampleNamespace</DscBuildToolsTargetNamespace>
+    <DscBuildToolsJsonFile>$(MSBuildThisFileDirectory)\DscResource.json</DscBuildToolsJsonFile>
+    <DscBuildToolsAssembly>$(MSBuildThisFileDirectory)\DscBuildTools.dll</DscBuildToolsAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <_DesiredStateConfiguration Include="$(MSBuildThisFileDirectory)*.xaml" />
+  </ItemGroup>
+
+  <!--<UsingTask TaskName="ImportDscResourceConfigurationFileTask" AssemblyFile="$(DscBuildToolsAssembly)" />-->
+  <UsingTask TaskName="GenerateDscResourceCommandsTask" AssemblyFile="$(DscBuildToolsAssembly)" />
+
+
+  <Target Name="Default" >
+
+    <!--<ImportDscResourceConfigurationFileTask
+      Configuration="@(_DesiredStateConfiguration)"
+      FilePath="$(DscBuildToolsJsonFile)">
+      
+      <Output TaskParameter="DscResource" ItemName="_DscResource" />
+      <Output TaskParameter="DscResourceProperties" ItemName="_DscResourceProperty" />
+
+    </ImportDscResourceConfigurationFileTask>-->
+
+    <GenerateDscResourceCommandsTask
+      DscResources="@(_DscResource)"
+      DscResourceProperties="@(_DscResourceProperty)"
+      TargetDirectory="$(IntermediateOutputPath)"
+      TargetNamespace="$(DscBuildToolsTargetNamespace)">
+      
+      <Output TaskParameter="OutputFile" ItemName="Compile" />
+      <Output TaskParameter="OutputFile" ItemName="FileWrites" />
+    </GenerateDscResourceCommandsTask>
+
+
+    <Message Importance="high" Text="@(_DscResource->'%(DscResourceName)|%(DscResourceFriendlyName)|%(DscResourceClassVersion)')" />
+    <Message Importance="high" Text="@(_DscResourceProperty->'%(DscResourcePropertyName)|%(DscResourcePropertyType)|%(DscResourcePropertyAttribute)|%(DscResourcePropertyValues)')" />
+
+  </Target>
+
+
+</Project>
